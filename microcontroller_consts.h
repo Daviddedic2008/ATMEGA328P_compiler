@@ -24,3 +24,18 @@
 // whats input vs output
 #define INPUT_PIN 0
 #define OUTPUT_PIN 0
+
+// branching 
+#define EQUAL 0
+#define GREATER 1
+#define LESS 2
+#define NOT_EQUAL 3
+
+// pointer regs
+#define Z_LO 30
+#define Z_HI 31
+#define Z 0 // temp def
+
+#define X_LO 26
+#define X_HI 27
+#define X 0 // temp def

@@ -2,10 +2,14 @@
 //
 
 #include <iostream>
+#include "flash_alloc.h"
+#include <string>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::string name("a");
+    int_allocation a = int_allocation(5, name);
+    int_allocation b = int_allocation(5, name);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
