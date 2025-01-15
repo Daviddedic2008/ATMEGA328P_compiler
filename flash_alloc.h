@@ -4,6 +4,8 @@
 #include <string>
 #include <list>
 
+bool regsInUse[16];
+
 struct memory_allocation {
     int startLocation;
     int size;

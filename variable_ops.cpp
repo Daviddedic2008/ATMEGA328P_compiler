@@ -69,7 +69,9 @@ void set_variable_variable(const char* name, const char* name2) {
 	ldi(X_LO, (char)tmp2);
 	ldi(X_HI, ((char*)&tmp2)[1]);
 
-	push(16);
+	if (regsInUse[16]) {
+		push(16);
+	}
 	for (int b = 0; b < (it->size < it2->size) ? it->size : it2->size; b++, adiw(Z_LO, 1), adiw(Z_LO, 1)) {
 		int tmpsz = it->startLocation + b;
 		char lo = (char)(tmpsz);
@@ -77,7 +79,9 @@ void set_variable_variable(const char* name, const char* name2) {
 		ld(16, X);
 		sts(Z, 16);
 	}
-	pop(16);
+	if (regsInUse[16]) {
+		pop(16);
+	}
 }
 
 void add_const_to_var(const char* name, const char* val, int num_bytes) {
@@ -97,7 +101,9 @@ void add_const_to_var(const char* name, const char* val, int num_bytes) {
 		return;
 	}
 	it->move_to_regs();
-	push(16);
+	if (regsInUse[16]) {
+		push(16);
+	}
 	ldi(16, val[0]);
 	add(it->register_location, 16);
 	for (int r = it->register_location+1; r < it->register_location + it->size; r++) {
@@ -106,7 +112,9 @@ void add_const_to_var(const char* name, const char* val, int num_bytes) {
 			adc(r, 16);
 		}
 	}
-	pop(16);
+	if (regsInUse[16]) {
+		pop(16);
+	}
 	it->move_back_to_flash();
 }
 

@@ -6,8 +6,6 @@
 
 bool memInUse[FLASH_SIZE]; // keep track of what bytes are allocated
 
-bool regsInUse[16];
-
 // list to keep track of all allocations
 
 

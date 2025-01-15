@@ -130,6 +130,7 @@
     <ClCompile Include="asm_commands.cpp" />
     <ClCompile Include="atmega328p.cpp" />
     <ClCompile Include="branching.cpp" />
+    <ClCompile Include="expression_parser.cpp" />
     <ClCompile Include="file_parser.cpp" />
     <ClCompile Include="flash_alloc.cpp" />
     <ClCompile Include="variable_ops.cpp" />
@@ -137,6 +138,7 @@
   <ItemGroup>
     <ClInclude Include="asm_commands.h" />
     <ClInclude Include="branching.h" />
+    <ClInclude Include="expression_parser.h" />
     <ClInclude Include="file_parser.h" />
     <ClInclude Include="flash_alloc.h" />
     <ClInclude Include="microcontroller_consts.h" />

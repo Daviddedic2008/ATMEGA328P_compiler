@@ -21,6 +21,9 @@ void if_vars(general_allocation v1, general_allocation v2, int comparison_type, 
 	tmp = v2.alloc.startLocation + v2.alloc.size;
 	ldi(X_HI, ((char*)&(tmp))[1]);
 
+	if (regsInUse[16]) {
+		push(16);
+	}
 	if (comparison_type == LESS) {
 		// check greater sized var
 		int o = 0;
@@ -74,6 +77,9 @@ void if_vars(general_allocation v1, general_allocation v2, int comparison_type, 
 			brne(tag_after);
 		}
 	}
+	if (regsInUse[16]) {
+		pop(16);
+	}
 }
 
 void if_var_const(general_allocation v1, const char* val, int num_bytes, int comparison_type, const char* tag_after) {
@@ -85,6 +91,10 @@ void if_var_const(general_allocation v1, const char* val, int num_bytes, int com
 	ldi(Z_LO, (char)(v1.alloc.startLocation));
 	char* tmp = (char*)(&(v1.alloc.startLocation));
 	ldi(Z_HI, tmp[1]);
+
+	if (regsInUse[16]) {
+		push(16);
+	}
 
 	if (comparison_type == LESS) {
 		// check greater sized var
@@ -137,5 +147,9 @@ void if_var_const(general_allocation v1, const char* val, int num_bytes, int com
 			cp(16, 17);
 			brne(tag_after);
 		}
+	}
+
+	if (regsInUse[16]) {
+		pop(16);
 	}
 }
