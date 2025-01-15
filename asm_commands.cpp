@@ -14,6 +14,10 @@ void add(int reg1, int reg2) {
 	printf("add %d %d\n", reg1, reg2);
 }
 
+void adc(int reg1, int reg2) {
+	printf("adc %d %d\n", reg1, reg2);
+}
+
 void sts(int memloc, int reg) {
 	printf("sts %u %d\n", memloc, reg);
 }

@@ -39,3 +39,7 @@
 #define X_LO 26
 #define X_HI 27
 #define X 0 // temp def
+
+// stack pointers are implemented on a hardware level, meaning no worry of overwriting
+// stack size is in theory unlimited, going from 0x800 back down to 0 at max, but shouldnt take up so much
+#define MAX_STACK 256 

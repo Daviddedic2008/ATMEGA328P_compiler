@@ -16,6 +16,9 @@
     <Filter Include="src &amp; compiled txt">
       <UniqueIdentifier>{a4dbca0f-f633-4ee2-b299-7daf66e64bc8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="tests">
+      <UniqueIdentifier>{6d650f25-83c4-4211-8c29-94e4b4b5827e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="atmega328p.cpp">
@@ -31,6 +34,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="branching.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="variable_ops.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,6 +56,9 @@
     <ClInclude Include="branching.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="variable_ops.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="avrCompiled.txt">
@@ -57,6 +66,15 @@
     </Text>
     <Text Include="avrSrc.txt">
       <Filter>src &amp; compiled txt</Filter>
+    </Text>
+    <Text Include="test1_easy.txt">
+      <Filter>tests</Filter>
+    </Text>
+    <Text Include="test2_loops.txt">
+      <Filter>tests</Filter>
+    </Text>
+    <Text Include="test3_inline.txt">
+      <Filter>tests</Filter>
     </Text>
   </ItemGroup>
 </Project>

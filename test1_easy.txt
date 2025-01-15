@@ -1,0 +1,14 @@
+main{
+	print(50);
+	int x = 5;
+	int y = x + 3;
+	print y;
+
+	loop:
+	if(y > x){
+		x++;
+		goto loop;
+	}
+	print(x);
+	print(y);
+}

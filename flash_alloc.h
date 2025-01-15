@@ -1,11 +1,16 @@
 #pragma once
+
 #include "microcontroller_consts.h"
 #include <string>
+#include <list>
 
 struct memory_allocation {
     int startLocation;
     int size;
+    int register_location = -1;
     std::string name;
+
+    memory_allocation(){}
 
     memory_allocation(int start, int sz, std::string& nm);
 
@@ -13,6 +18,10 @@ struct memory_allocation {
 
     // define the equality operator for the struct to be maybe used in remove
     bool operator==(const memory_allocation& other) const;
+
+    void move_to_regs();
+
+    void move_back_to_flash();
 };
 
 struct int_allocation {
@@ -43,3 +52,5 @@ struct general_allocation {
 
     void free();
 };
+
+std::list<memory_allocation> allocations;

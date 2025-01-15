@@ -1,14 +1,15 @@
 #include "flash_alloc.h"
 #include "asm_commands.h"
 
-#include <list>
 #include <string>
 #include <iostream>
 
 bool memInUse[FLASH_SIZE]; // keep track of what bytes are allocated
 
+bool regsInUse[16];
+
 // list to keep track of all allocations
-std::list<memory_allocation> allocations;
+
 
 memory_allocation::memory_allocation(int start, int sz, std::string& nm){
     size = sz;
@@ -42,6 +43,39 @@ void memory_allocation::free() {
 // define the equality operator for the struct to be maybe used in remove
 bool memory_allocation::operator==(const memory_allocation& other) const {
     return (startLocation == other.startLocation) && (size == other.size) && (name == other.name);
+}
+
+void memory_allocation::move_to_regs() {
+    int rloc = 0;
+    bool found = false;
+    for (; rloc < 16; rloc++) {
+        for (int o = 0; o < size; o++) {
+            regsInUse[o] = true;
+            if (regsInUse[rloc + o]) { 
+                for (int o2 = 0; o2 <= o; o2++) {
+                    regsInUse[o2] = false;
+                }
+                goto cnt; 
+            }
+        }
+        found = true;
+        break;
+    cnt:;
+    }
+    if (found) {
+        register_location = rloc;
+        return;
+    }
+    std::cerr << "too little regs to use" << std::endl;
+}
+
+void memory_allocation::move_back_to_flash() {
+    if (register_location == -1) {
+        std::cerr << "not init in regs" << std::endl;
+    }
+    for (int r = 0; r < size; r++) {
+        regsInUse[r + register_location] = false;
+    }
 }
 
 // function to get a valid start index for malloc

@@ -1,0 +1,33 @@
+#define value 50
+
+main{
+	int x;
+	x = 5;
+	// comment test
+	int y = x + 4;
+	if(y > x){
+		print("wow");
+	}
+	prnt:
+	int i = 0;
+	for(int i = 0; i < 10; i++){
+		print("waw");
+	}
+	for(int x = 0; x < 3; x++){
+		i += 5;
+	}
+	if(i < value){
+		print(value);
+	}
+	goto prnt;
+	char asmvar = 0;
+
+	asm_start;
+	ldi r17, value
+	ld r16, asmvar
+	add r16, r17
+	sts asmvar, r16
+	asm_end;
+
+	print(asmvar);
+}

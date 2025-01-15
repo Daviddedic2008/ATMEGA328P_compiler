@@ -1,0 +1,23 @@
+asm_start;
+
+func1:
+	; multiply r16, r17
+	mul r16, r17
+	movw r0, r16
+	ret
+
+asm_end;
+
+main{
+	asm_regs r16 r17; // dont overwrite r16, r17
+	asm_start;
+	ldi r16, 50
+	ldi r17, 10
+	asm_end;
+
+	int x = 5;
+	if(x > 2){
+		func1;
+	}
+	asm_regs; // free regs used by asm
+}

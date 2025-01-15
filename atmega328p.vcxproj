@@ -132,6 +132,7 @@
     <ClCompile Include="branching.cpp" />
     <ClCompile Include="file_parser.cpp" />
     <ClCompile Include="flash_alloc.cpp" />
+    <ClCompile Include="variable_ops.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="asm_commands.h" />
@@ -139,10 +140,14 @@
     <ClInclude Include="file_parser.h" />
     <ClInclude Include="flash_alloc.h" />
     <ClInclude Include="microcontroller_consts.h" />
+    <ClInclude Include="variable_ops.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="avrCompiled.txt" />
     <Text Include="avrSrc.txt" />
+    <Text Include="test1_easy.txt" />
+    <Text Include="test2_loops.txt" />
+    <Text Include="test3_inline.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
