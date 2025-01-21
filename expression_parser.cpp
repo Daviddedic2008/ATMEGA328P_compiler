@@ -3,6 +3,8 @@
 #include "microcontroller_consts.h"
 #include "flash_alloc.h"
 #include "expression_parser.h"
+#include <string>
+#include <list>
 
 // decode an expression into a linear series of instructions
 
@@ -16,11 +18,14 @@ struct instruction {
 	instruction(memory_allocation m, int v, char o) : varName(nullptr), op(o), val(v), location(m) {}
 };
 
-struct instruction_alist {
-	instruction* instructions = (instruction*)malloc(0);
-	int sz = 0;
-};
+std::list<instruction> parse_expression(std::string expression) {
+	
+	size_t cur_index = expression.find(' ');
 
-instruction_alist parse_expression(char* expression) {
+	std::string varname = expression.substr(0, cur_index);
+	expression = expression.substr(cur_index + 1, expression.size() - cur_index-1);
+
+	std::list<instruction> ret;
+	return ret;
 
 }

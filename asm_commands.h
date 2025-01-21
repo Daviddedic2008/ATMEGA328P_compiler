@@ -10,6 +10,10 @@ void add(int reg1, int reg2);
 
 void adc(int reg1, int reg2);
 
+void mul(int reg1, int reg2);
+
+void mulc(int reg1, int reg2);
+
 void sts(int memloc, int reg);
 
 void push(int reg);

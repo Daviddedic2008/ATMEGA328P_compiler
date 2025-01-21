@@ -18,6 +18,14 @@ void adc(int reg1, int reg2) {
 	printf("adc %d %d\n", reg1, reg2);
 }
 
+void mul(int reg1, int reg2) {
+	printf("mul %d %d\n", reg1, reg2);
+}
+
+void mulc(int reg1, int reg2) {
+	printf("mulc %d %d\n", reg1, reg2);
+}
+
 void sts(int memloc, int reg) {
 	printf("sts %u %d\n", memloc, reg);
 }
